@@ -53,7 +53,7 @@ public class Adder extends BaseOperator {
             map.put(entr.getKey(), entr.getValue());
         }
 
-        double sum = map.values().stream().mapToDouble(v -> v).sum();
+        int product = map.values().stream().reduce(1, (a, b) -> a * b);
 
         if (debug) {
             for (Map.Entry<String, Double> entr: map.entrySet()) {
@@ -62,7 +62,7 @@ public class Adder extends BaseOperator {
         }
 
         message.output("lastTimestamp", timestamp);
-        message.output("sum", sum);
+        message.output("product", product);
     }
 
     @Override
