@@ -53,7 +53,7 @@ public class Adder extends BaseOperator {
             map.put(entr.getKey(), entr.getValue());
         }
 
-        int product = map.values().stream().reduce(1, (a, b) -> a * b);
+        double product = map.values().stream().reduce((double) 1, (a, b) -> a * b);
 
         if (debug) {
             for (Map.Entry<String, Double> entr: map.entrySet()) {
