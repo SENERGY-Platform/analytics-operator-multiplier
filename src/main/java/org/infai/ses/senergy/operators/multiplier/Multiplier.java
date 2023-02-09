@@ -54,6 +54,7 @@ public class Multiplier extends BaseOperator {
         }
 
         double product = map.values().stream().reduce((double) 1, (a, b) -> a * b);
+        System.out.println("Product: " + product + "         Timestamp: " + timestamp);
 
         if (debug) {
             for (Map.Entry<String, Double> entr: map.entrySet()) {
