@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.infai.ses.senergy.operators.adder;
+package org.infai.ses.senergy.operators.multiplier;
 
 import org.infai.ses.senergy.exceptions.NoValueException;
 import org.infai.ses.senergy.operators.BaseOperator;
@@ -27,12 +27,12 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class Adder extends BaseOperator {
+public class Multiplier extends BaseOperator {
 
     private Map<String, Double> map;
     private boolean debug;
 
-    public Adder(){
+    public Multiplier(){
         map = new HashMap<>();
         debug = Boolean.parseBoolean(Helper.getEnv("DEBUG", "false"));
     }

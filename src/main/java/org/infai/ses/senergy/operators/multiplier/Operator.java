@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.infai.ses.senergy.operators.adder;
+package org.infai.ses.senergy.operators.multiplier;
 
 import org.infai.ses.senergy.operators.Stream;
 
@@ -22,6 +22,6 @@ public class Operator {
 
     public static void main(String[] args) {
         Stream stream  = new Stream();
-        stream.start(new Adder());
+        stream.start(new Multiplier());
     }
 }

@@ -4,23 +4,23 @@ import org.infai.ses.senergy.operators.Config;
 import org.infai.ses.senergy.operators.Helper;
 import org.infai.ses.senergy.operators.Message;
 import org.infai.ses.senergy.operators.OperatorInterface;
-import org.infai.ses.senergy.operators.adder.Adder;
+import org.infai.ses.senergy.operators.multiplier.Multiplier;
 import org.infai.ses.senergy.testing.utils.JSONHelper;
 import org.infai.ses.senergy.utils.ConfigProvider;
 import org.json.simple.JSONArray;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class AdderTest {
+public class MultiplierTest {
     @Test
-    public void sumTest() throws Exception {
+    public void productTest() throws Exception {
         Config config = new Config(new JSONHelper().parseFile("config.json").toString());
         JSONArray messages = new JSONHelper().parseFile("messages.json");
         String topicName = config.getInputTopicsConfigs().get(0).getName();
         ConfigProvider.setConfig(config);
         Message message = new Message();
         MessageModel model = new MessageModel();
-        OperatorInterface testOperator = new Adder();
+        OperatorInterface testOperator = new Multiplier();
         message.addInput("expectValue");
         message.addInput("expectTS");
         testOperator.configMessage(message);
@@ -30,7 +30,7 @@ public class AdderTest {
             model.putMessage(topicName, Helper.deviceToInputMessageModel(deviceMessageModel, topicName));
             message.setMessage(model);
             testOperator.run(message);
-            Assert.assertEquals(message.getInput("expectValue").getValue(), message.getMessage().getOutputMessage().getAnalytics().get("sum"));
+            Assert.assertEquals(message.getInput("expectValue").getValue(), message.getMessage().getOutputMessage().getAnalytics().get("product"));
             Assert.assertEquals(message.getInput("expectTS").getString(), message.getMessage().getOutputMessage().getAnalytics().get("lastTimestamp"));
         }
     }
