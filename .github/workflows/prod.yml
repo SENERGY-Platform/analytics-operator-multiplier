@@ -33,4 +33,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
+            smartenergyplatform/analytics-operator-multiplier:prod
             ghcr.io/senergy-platform/analytics-operator-multiplier:prod
